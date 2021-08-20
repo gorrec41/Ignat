@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Message from './Message'
 import st from './Message.module.css'
-
+const ms=''
 export type contDate={
     avatar:string,
     name:string,
@@ -16,6 +16,26 @@ const messageData = {
 }
 
 function HW1() {
+    const [name, setName] = useState('');
+    console.log(setName)
+
+    function handleInput(event:any) {
+        console.log( setName(event.target.value))
+        setName(event.target.value);
+        
+    }
+
+    // const handleInput = event => {
+    //   setName(event.target.value);
+    // };
+  
+    const logValue = () => {
+      console.log(name);
+      messageData.message=name
+      console.log (messageData.message)
+
+    };
+  
     return (
         <div className={st.message_block}>
             <hr/>
@@ -27,19 +47,17 @@ function HW1() {
                 message={messageData.message}
                 time={messageData.time}
             />  
-                <Message
-                avatar={messageData.avatar}
-                name={messageData.name}
-                message={messageData.message}
-                time={messageData.time}
-            />  
-             <input className={st.input}/>
-            <button className={st.btn}>Ok</button>
+        
+            {/* onChange={handleInput} */}
+            <input  onChange={handleInput} placeholder="Enter name"/>
+            <button onClick={logValue}>Log value</button>
 
             <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeMessage/>*/}
             <hr/>
+
+            
         </div>
     )
 }
