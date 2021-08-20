@@ -40,6 +40,10 @@ ul {
     border-block: 2px solid rgb(204, 6, 6);
     border-radius: 30px;
 }
+.message_list{
+    display: flex;
+    flex-direction: column;
+}
 .message_item,
 .message_item__name,
 .message_item__date
